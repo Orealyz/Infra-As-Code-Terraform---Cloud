@@ -1,24 +1,20 @@
-
-# WordPress N-tier Infrastructure on Azure
+# Infrastructure WordPress N-tiers sur Azure
 
 ## Description
-This project deploys a 3-tier WordPress infrastructure using Azure and Terraform with environments for `dev` and `prod`.
+Ce projet permet de déployer une infrastructure WordPress en 3 couches (N-tiers) sur Microsoft Azure à l’aide de Terraform, avec la prise en charge des environnements `dev` et `prod`.
 
-## Components
-- Azure Container Registry (ACR)
-- WordPress (Dockerized, hosted in Azure Web App for Linux)
-- Azure MySQL Flexible Server
+## Composants
+- **Azure Container Registry (ACR)** : pour héberger l’image Docker de WordPress personnalisée
+- **WordPress** : conteneur Docker hébergé dans une Azure Web App pour Linux
+- **Azure MySQL Flexible Server** : base de données pour WordPress
 
-## Deployment Steps
-1. Clone the repository
-2. Authenticate with Azure CLI: `az login`
-3. Select or create a workspace: `terraform workspace new dev`
+## Étapes de déploiement
+1. Cloner le dépôt Git
+2. Se connecter à Azure via la CLI: `az login`
+3. Sélectionner ou créer le workspace : `terraform workspace new dev`
 4. Run:
 ```bash
 terraform init
 terraform apply -var="environment=dev"
 ```
 
-## Notes
-- WordPress Docker image is customized (theme/logo).
-- Environments use Terraform workspaces.
